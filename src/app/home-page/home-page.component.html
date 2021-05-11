@@ -1,0 +1,145 @@
+<mat-card>
+  <h1>Добре Дошли</h1>
+  <h1>Хотел Мария Гaрдън</h1>
+
+  <hr />
+
+  <mat-card>
+    <mat-tab-group>
+      <mat-tab label="За нас">
+        <div class="tab-wrapper">
+          <p>
+            Семеен хотел Мария Гарден, Кранево е новоотркит бутиков комплекс.
+            Обектът е с обособени парко места и видеонаблюдение. Осигурен е
+            безплатен Wi-Fi достъп в цялата сграда. Стаите разполагат с тераси.
+          </p>
+          <p>
+            Сградата се намира на близко разстояние както от централната плажна
+            ивица – 4 мин пеша, така и от главната търговска улица - 3 минути
+            пеша. До хотела има супермаркет и аптека. На място се продават ръчно
+            изработени керамични изделия, произведени от самите собственици на
+            хотела.
+          </p>
+          <p>
+            Хотелът разполага с барче, голям двор, където предоставя още едно
+            място за отдих - лятна кухня с барбекю даващо възможност сами да
+            приготвите вашата храна, което я правят идеално място за семейна
+            почивка. На рецепцията се предлагат екскурзии до забележителности в
+            региона и оферти за летене с парапланер.
+          </p>
+        </div>
+      </mat-tab>
+      <mat-tab label="Местоположение и контакти">
+        <div class="tab-wrapper">
+          <div class="contacts-location-wrapper">
+            <div>
+              <p class="location-info">
+                Хотелът е само на 1.5 километра от Албена (по плажа), 4 км с
+                кола, на 7 километра от Златни пясъци и на 23 км от летище
+                Варна.
+              </p>
+              <p style="padding: 0px; margin: 0px">
+                Телефон за връзка: +359 886358225
+              </p>
+              <!-- <p style="padding: 0px; margin: 0px">+359 886358225</p> -->
+            </div>
+            <div class="mapouter">
+              <div class="gmap_canvas">
+                <iframe
+                  width="800"
+                  height="500"
+                  id="gmap_canvas"
+                  src="https://maps.google.com/maps?q=Kranevo%20%20Maria%20Garden&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                  frameborder="0"
+                  scrolling="no"
+                  marginheight="0"
+                  marginwidth="0"
+                ></iframe
+                ><a href="https://embedgooglemap.net/maps/44"></a><br /><style>
+                  .mapouter {
+                    position: relative;
+                    text-align: right;
+                    height: 500px;
+                    width: 600px;
+                  }</style
+                ><a href="https://www.embedgooglemap.net"
+                  >embedding google maps in webpage</a
+                ><style>
+                  .gmap_canvas {
+                    overflow: hidden;
+                    background: none !important;
+                    height: 500px;
+                    width: 600px;
+                  }
+                </style>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Стаи и цени">
+        <div class="tab-wrapper">
+          <p class="center-text">
+            Семеен хотел Мария Гарден, Кранево разполага с леглова база от 42
+            места.
+          </p>
+
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef>Тип Стая</th>
+              <td mat-cell *matCellDef="let element">{{ element.roomType }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Брой стай от тип</th>
+              <td style="padding-left: 34px" mat-cell *matCellDef="let element">
+                {{ element.numberOfRooms }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="weight">
+              <th mat-header-cell *matHeaderCellDef>
+                Цена силен летен
+                <p>(01.07 - 31.08)</p>
+              </th>
+              <td style="padding-left: 14px" mat-cell *matCellDef="let element">
+                {{ element.strongSummer }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="symbol">
+              <th mat-header-cell *matHeaderCellDef>
+                Цена слаб летен
+                <p>(01.06 - 30.06) (01.09 - 20.09)</p>
+              </th>
+              <td style="padding-left: 14px" mat-cell *matCellDef="let element">
+                {{ element.weakSummer }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="test">
+              <th mat-header-cell *matHeaderCellDef>Друг сезон</th>
+              <td style="padding-left: 14px" mat-cell *matCellDef="let element">
+                {{ element.other }}
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+      </mat-tab>
+      <!-- <mat-tab label="Галерия">
+        <div class="tab-wrapper">
+          <div class="row">
+            <mdb-image-modal
+              [modalImages]="imagesBasic"
+              type="no-margin"
+            ></mdb-image-modal>
+          </div>
+        </div>
+      </mat-tab> -->
+    </mat-tab-group>
+  </mat-card>
+</mat-card>
